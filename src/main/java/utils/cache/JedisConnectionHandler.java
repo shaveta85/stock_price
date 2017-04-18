@@ -35,7 +35,7 @@ public class JedisConnectionHandler {
         redisServer = new RedisServer(6379);
         redisServer.start();
       }
-    } catch(Exception e){
+    } catch(IOException e){
       System.out.print("error starting redis server");
     }
   }

@@ -27,7 +27,7 @@ public class Main {
         StockResponse information = financeDao.getStockDetails(symbol);
         attributes.put("stock", information);
         attributes.put("symbol", symbol);
-        attributes.put("companyList", companyStockNames);
+        attributes.put("companyList", companyStockNames.toString());
       } catch (Exception e) {
       }
 
