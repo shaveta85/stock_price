@@ -27,8 +27,9 @@
     <orderEntry type="library" name="Maven: org.postgresql:postgresql:9.4-1201-jdbc4" level="project" />
     <orderEntry type="library" name="Maven: com.zaxxer:HikariCP:2.6.0" level="project" />
     <orderEntry type="library" name="Maven: com.yahoofinance-api:YahooFinanceAPI:2.0.0" level="project" />
-    <orderEntry type="library" name="Maven: uk.co.datumedge:redis-launcher:0.3" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.commons:commons-exec:1.1" level="project" />
+    <orderEntry type="library" name="Maven: com.github.kstyrc:embedded-redis:0.6" level="project" />
+    <orderEntry type="library" name="Maven: com.google.guava:guava:18.0" level="project" />
+    <orderEntry type="library" name="Maven: commons-io:commons-io:2.4" level="project" />
     <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.16.4" level="project" />
     <orderEntry type="library" name="Maven: redis.clients:jedis:2.4.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-pool2:2.0" level="project" />

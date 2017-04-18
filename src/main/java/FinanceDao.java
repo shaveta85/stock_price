@@ -30,7 +30,14 @@ public class FinanceDao {
     StockResponse response = null;
     String stockSymbol = getSymbolFromName(stockName);
     stockSymbol = (null == stockSymbol)?stockName:stockSymbol;
-    return getStockDetailsFromApi(stockSymbol);
+    Object cacheObj = cacheConnectionHandler.get(stockSymbol);
+    if(null != stockSymbol && null != cacheObj) {
+      response = (StockResponse) cacheObj;
+    } else {
+      response = getStockDetailsFromApi(stockSymbol);
+      cacheConnectionHandler.set(stockSymbol, response, JedisConnectionHandler.DEFAULT_REDIS_TTL);
+    }
+    return response;
   }
 
   public void readMap() {

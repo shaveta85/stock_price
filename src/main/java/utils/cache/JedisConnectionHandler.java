@@ -3,6 +3,7 @@ package utils.cache;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.exceptions.JedisConnectionException;
+import redis.embedded.RedisServer;
 
 import java.io.IOException;
 
@@ -19,11 +20,24 @@ public class JedisConnectionHandler {
 
   //the jedis connection pool..
   private static JedisPool pool = null;
-  private static Jedis jedis= null;
+  private static Jedis jedis = null;
+  private static RedisServer redisServer;
 
   public JedisConnectionHandler() {
+    startRedisServer();
     pool = new JedisPool(REDIS_HOST, REDIS_PORT);
     this.jedis = getConnection();
+  }
+
+  protected void startRedisServer() {
+    try {
+      if(null == redisServer || !redisServer.isActive()) {
+        redisServer = new RedisServer(6379);
+        redisServer.start();
+      }
+    } catch(Exception e){
+      System.out.print("error starting redis server");
+    }
   }
 
   protected Jedis getConnection() {
